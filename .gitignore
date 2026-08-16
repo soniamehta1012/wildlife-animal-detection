@@ -1,4 +1,4 @@
-# Dataset - keep locally, do not upload to GitHub
+# Dataset - DO NOT upload to GitHub
 images/
 labels/
 
@@ -9,6 +9,7 @@ runs/
 # Python cache
 __pycache__/
 *.pyc
+*.pyo
 
 # Jupyter
 .ipynb_checkpoints/
@@ -17,10 +18,17 @@ __pycache__/
 .venv/
 venv/
 env/
+ENV/
 
-# VS Code local settings
+# Environment variables / secrets
+.env
+
+# VS Code
 .vscode/
 
 # OS files
 .DS_Store
 Thumbs.db
+
+# Temporary files
+tempCodeRunnerFile.py
