@@ -1,0 +1,26 @@
+# Dataset - keep locally, do not upload to GitHub
+images/
+labels/
+
+# YOLO training outputs
+runs/
+*.pt
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# VS Code local settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
