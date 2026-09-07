@@ -1,3 +1,7 @@
+```css
+/* =========================================
+   GLOBAL
+========================================= */
 
 * {
     margin: 0;
@@ -25,13 +29,13 @@ body {
 
     background: #ffffff;
 
-    /* Light green border */
     border: 4px solid #a8d5ba;
-
     border-radius: 20px;
+
     overflow: hidden;
 
-    box-shadow: 0 10px 30px rgba(60, 100, 70, 0.15);
+    box-shadow:
+        0 10px 30px rgba(60, 100, 70, 0.15);
 }
 
 
@@ -53,9 +57,6 @@ body {
     border-bottom: 2px solid #b7dfc4;
 }
 
-
-/* Animal paw logo */
-
 .logo {
     width: 65px;
     height: 65px;
@@ -73,16 +74,12 @@ body {
     border: 2px solid #91c9a5;
 }
 
-
-/* Website title */
-
 .title-section {
     text-align: left;
 }
 
 .title-section h1 {
     font-size: 38px;
-
     letter-spacing: 4px;
 
     color: #285c3a;
@@ -100,14 +97,13 @@ body {
 
 
 /* =========================================
-   NAVIGATION BAR
+   NAVIGATION
 ========================================= */
 
 .navbar {
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     gap: 10px;
@@ -118,9 +114,6 @@ body {
 
     border-bottom: 1px solid #d4e8d9;
 }
-
-
-/* Navigation links */
 
 .navbar a {
     text-decoration: none;
@@ -136,9 +129,6 @@ body {
     transition: all 0.3s ease;
 }
 
-
-/* Hover effect */
-
 .navbar a:hover {
     background: #e3f2e7;
 
@@ -147,20 +137,18 @@ body {
     transform: translateY(-2px);
 }
 
-
-/* Active Home button */
-
 .navbar a.active {
     background: #c6e5ce;
 
     color: #205a35;
 
-    box-shadow: 0 3px 8px rgba(70, 120, 80, 0.15);
+    box-shadow:
+        0 3px 8px rgba(70, 120, 80, 0.15);
 }
 
 
 /* =========================================
-   HERO SECTION
+   HERO
 ========================================= */
 
 .hero {
@@ -168,22 +156,18 @@ body {
 
     text-align: center;
 
-    background: linear-gradient(
-        180deg,
-        #f8fcf8,
-        #eef8f0
-    );
+    background:
+        linear-gradient(
+            180deg,
+            #f8fcf8,
+            #eef8f0
+        );
 }
-
 
 .hero-content {
     max-width: 750px;
-
     margin: auto;
 }
-
-
-/* Main heading */
 
 .hero h2 {
     font-size: 42px;
@@ -192,9 +176,6 @@ body {
 
     margin-bottom: 15px;
 }
-
-
-/* Description */
 
 .hero-content > p {
     font-size: 18px;
@@ -210,7 +191,7 @@ body {
 
 
 /* =========================================
-   IMAGE UPLOAD BOX
+   UPLOAD BOX
 ========================================= */
 
 .upload-box {
@@ -232,9 +213,6 @@ body {
         0 8px 20px rgba(70, 110, 80, 0.08);
 }
 
-
-/* Upload box hover */
-
 .upload-box:hover {
     border-color: #4d9b68;
 
@@ -247,7 +225,20 @@ body {
 }
 
 
-/* Camera icon */
+/* Drag active */
+
+.upload-box.drag-active {
+    border-color: #285c3a;
+
+    background: #e8f5eb;
+
+    transform: scale(1.02);
+}
+
+
+/* =========================================
+   UPLOAD ICON
+========================================= */
 
 .upload-icon {
     font-size: 55px;
@@ -256,28 +247,8 @@ body {
 }
 
 
-/* Upload heading */
-
-.upload-box h3 {
-    font-size: 22px;
-
-    color: #315e40;
-
-    margin-bottom: 8px;
-}
-
-
-/* Upload description */
-
-.upload-box p {
-    color: #789080;
-
-    margin-bottom: 25px;
-}
-
-
 /* =========================================
-   CHOOSE IMAGE BUTTON
+   UPLOAD BUTTON
 ========================================= */
 
 .upload-button {
@@ -301,16 +272,12 @@ body {
         0 5px 12px rgba(60, 120, 80, 0.2);
 }
 
-
-/* Button hover */
-
 .upload-button:hover {
     background: #43895a;
 
-    transform: translateY(-2px);
+    color: #ffffff;
 
-    box-shadow:
-        0 7px 15px rgba(60, 120, 80, 0.3);
+    transform: translateY(-2px);
 }
 
 
@@ -337,15 +304,11 @@ body {
         0 8px 20px rgba(70, 110, 80, 0.08);
 }
 
-
 .preview-container h3 {
     margin-bottom: 15px;
 
     color: #315e40;
 }
-
-
-/* Uploaded image */
 
 .preview-container img {
     width: 100%;
@@ -363,7 +326,7 @@ body {
 
 
 /* =========================================
-   PREDICT ANIMAL BUTTON
+   PREDICT BUTTON
 ========================================= */
 
 .predict-button {
@@ -388,11 +351,10 @@ body {
     transition: all 0.3s ease;
 }
 
-
-/* Predict button hover */
-
 .predict-button:hover {
     background: #1c452b;
+
+    color: #ffffff;
 
     transform: translateY(-2px);
 
@@ -402,24 +364,18 @@ body {
 
 
 /* =========================================
-   FEATURES SECTION
+   FEATURES
 ========================================= */
 
 .features {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 25px;
-
-    padding: 45px 40px;
+    padding: 50px 40px;
 
     background: #ffffff;
 }
 
 
-/* Feature cards */
+/* Bootstrap controls the columns.
+   This controls the card itself. */
 
 .feature-card {
     text-align: center;
@@ -432,11 +388,18 @@ body {
 
     background: #fbfefb;
 
-    transition: all 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+    /* Resizable visual behavior */
+    min-height: 220px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-
-
-/* Card hover */
 
 .feature-card:hover {
     transform: translateY(-5px);
@@ -447,17 +410,11 @@ body {
         0 8px 20px rgba(70, 110, 80, 0.1);
 }
 
-
-/* Feature icons */
-
 .feature-icon {
     font-size: 40px;
 
     margin-bottom: 15px;
 }
-
-
-/* Feature heading */
 
 .feature-card h3 {
     color: #315e40;
@@ -465,13 +422,12 @@ body {
     margin-bottom: 10px;
 }
 
-
-/* Feature paragraph */
-
 .feature-card p {
     color: #718378;
 
     line-height: 1.6;
+
+    margin-bottom: 0;
 }
 
 
@@ -493,9 +449,13 @@ footer {
     border-top: 1px solid #c8e1ce;
 }
 
+footer p {
+    margin-bottom: 0;
+}
+
 
 /* =========================================
-   TABLET RESPONSIVE DESIGN
+   TABLET
 ========================================= */
 
 @media (max-width: 768px) {
@@ -504,57 +464,52 @@ footer {
         padding: 10px;
     }
 
-
-    /* Header */
-
     .title-section h1 {
         font-size: 28px;
 
         letter-spacing: 2px;
     }
 
-
     .header {
         padding: 20px;
     }
-
-
-    /* Navigation */
 
     .navbar {
         flex-wrap: wrap;
     }
 
-
-    /* Hero */
-
     .hero {
         padding: 45px 15px;
     }
-
 
     .hero h2 {
         font-size: 32px;
     }
 
-
-    /* Features */
-
     .features {
-        grid-template-columns: 1fr;
+        padding: 35px 20px;
+    }
 
-        padding: 30px 20px;
+    .feature-card {
+        min-height: 200px;
     }
 }
 
 
 /* =========================================
-   MOBILE RESPONSIVE DESIGN
+   MOBILE
 ========================================= */
 
 @media (max-width: 480px) {
 
-    /* Header */
+    body {
+        padding: 5px;
+    }
+
+    .main-container {
+        border-width: 2px;
+        border-radius: 12px;
+    }
 
     .header {
         flex-direction: column;
@@ -562,23 +517,17 @@ footer {
         text-align: center;
     }
 
-
     .title-section {
         text-align: center;
     }
-
 
     .title-section h1 {
         font-size: 24px;
     }
 
-
-    /* Navigation */
-
     .navbar {
         gap: 5px;
     }
-
 
     .navbar a {
         padding: 8px 14px;
@@ -586,29 +535,29 @@ footer {
         font-size: 14px;
     }
 
-
-    /* Hero */
-
     .hero h2 {
         font-size: 28px;
     }
-
 
     .hero-content > p {
         font-size: 16px;
     }
 
-
-    /* Upload box */
-
     .upload-box {
         padding: 30px 20px;
     }
 
-
-    /* Predict button */
-
     .predict-button {
         width: 90%;
     }
+
+    .features {
+        padding: 30px 15px;
+    }
+
+    .feature-card {
+        min-height: 180px;
+    }
 }
+```
+s
