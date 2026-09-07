@@ -6,86 +6,294 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Wild Animals - Animal Detection</title>
+    <title>Wild Animals | Wildlife Detection System</title>
 
-    <!-- Bootstrap 5 CSS -->
+    <!-- Bootstrap 5 -->
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet">
 
-    <!-- Your Custom CSS -->
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="main-container">
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
-        <!-- ================= HEADER ================= -->
-        <header class="header">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
 
-            <div class="logo">
-                🐾
-            </div>
+    <div class="container">
 
-            <div class="title-section">
-                <h1>WILD ANIMALS</h1>
-                <p>Wildlife Animal Detection System</p>
-            </div>
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+            <span class="brand-icon">🐾</span>
 
-        </header>
-
-
-        <!-- ================= NAVIGATION ================= -->
-        <nav class="navbar navbar-expand-md">
-
-            <a href="index.html" class="active">Home</a>
-
-            <a href="../identity/index.html">Identity</a>
-
-            <a href="../history/index.html">History</a>
-
-            <a href="../about/index.html">About</a>
-
-        </nav>
+            <span>
+                <strong>WILD ANIMALS</strong>
+                <small>Detection System</small>
+            </span>
+        </a>
 
 
-        <!-- ================= HERO SECTION ================= -->
-        <section class="hero">
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar">
 
-            <div class="hero-content container">
+            <span class="navbar-toggler-icon"></span>
 
-                <h2>Discover the Wild</h2>
+        </button>
 
-                <p>
-                    Upload an image of a wild animal and let our
-                    intelligent system identify the species.
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../identity/index.html">
+                        Identity
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../history/index.html">
+                        History
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../about/index.html">
+                        About
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO SECTION
+===================================================== -->
+
+<section class="hero-section">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <!-- Hero Content -->
+
+            <div class="col-lg-6">
+
+                <span class="hero-badge">
+                    <i class="bi bi-stars"></i>
+                    AI Powered Wildlife Detection
+                </span>
+
+                <h1 class="hero-title">
+                    Discover the
+                    <span>Wild</span>
+                </h1>
+
+                <p class="hero-description">
+                    Upload an image of a wild animal and our intelligent
+                    detection system will help identify the species.
+                    Explore wildlife through technology.
                 </p>
 
 
-                <!-- ================= UPLOAD BOX ================= -->
-                <div
-                    class="upload-box"
-                    id="uploadBox">
+                <div class="hero-buttons">
+
+                    <a href="#detect" class="btn primary-btn">
+                        <i class="bi bi-camera"></i>
+                        Start Detection
+                    </a>
+
+                    <a href="#how-it-works" class="btn secondary-btn">
+                        How It Works
+                    </a>
+
+                </div>
+
+
+                <div class="hero-points">
+
+                    <span>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Easy to use
+                    </span>
+
+                    <span>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Fast analysis
+                    </span>
+
+                    <span>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Wildlife focused
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hero Visual -->
+
+            <div class="col-lg-6">
+
+                <div class="hero-visual">
+
+                    <div class="visual-circle"></div>
+
+                    <div class="animal-visual">
+                        🦁
+                    </div>
+
+                    <div class="floating-card card-one">
+                        <i class="bi bi-eye"></i>
+                        <div>
+                            <strong>AI Detection</strong>
+                            <small>Ready to analyze</small>
+                        </div>
+                    </div>
+
+                    <div class="floating-card card-two">
+                        <i class="bi bi-shield-check"></i>
+                        <div>
+                            <strong>Wildlife</strong>
+                            <small>Species identification</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STATISTICS
+===================================================== -->
+
+<section class="stats-section">
+
+    <div class="container">
+
+        <div class="row g-3 text-center">
+
+            <div class="col-6 col-lg-3">
+                <div class="stat-item">
+                    <h3>100+</h3>
+                    <p>Wildlife Images</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-3">
+                <div class="stat-item">
+                    <h3>10+</h3>
+                    <p>Animal Species</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-3">
+                <div class="stat-item">
+                    <h3>AI</h3>
+                    <p>Powered Detection</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-3">
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Available System</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DETECTION SECTION
+===================================================== -->
+
+<section class="detection-section" id="detect">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>ANIMAL IDENTIFICATION</span>
+
+            <h2>
+                Upload & Detect
+            </h2>
+
+            <p>
+                Upload a clear image of a wild animal to begin
+                the identification process.
+            </p>
+
+        </div>
+
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <!-- Upload Box -->
+
+                <div class="upload-box" id="uploadBox">
 
                     <div class="upload-icon">
-                        📷
+                        <i class="bi bi-cloud-arrow-up"></i>
                     </div>
 
                     <h3>Upload Animal Image</h3>
 
                     <p>
-                        Drag & drop an image here or select one
-                        from your device.
+                        Drag & drop your image here
+                        or choose an image from your device.
                     </p>
+
 
                     <label
                         for="imageUpload"
-                        class="upload-button btn">
+                        class="btn upload-btn">
 
+                        <i class="bi bi-image"></i>
                         Choose Image
 
                     </label>
+
 
                     <input
                         type="file"
@@ -93,114 +301,162 @@
                         accept="image/jpeg,image/png,image/jpg,image/webp"
                         hidden>
 
-                    <small class="d-block mt-3 text-muted">
-                        Supported: JPG, PNG, WEBP | Max size: 5MB
-                    </small>
+
+                    <div class="upload-info">
+
+                        <span>
+                            <i class="bi bi-file-earmark-image"></i>
+                            JPG, PNG, WEBP
+                        </span>
+
+                        <span>
+                            <i class="bi bi-database"></i>
+                            Maximum 5 MB
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="upload-status"
+                        id="uploadStatus">
+                    </div>
 
                 </div>
 
 
-                <!-- ================= IMAGE PREVIEW ================= -->
+                <!-- Preview -->
+
                 <div
-                    class="preview-container"
+                    class="preview-card"
                     id="previewContainer">
 
-                    <h3>Selected Image</h3>
+                    <div class="preview-header">
+
+                        <div>
+                            <span>SELECTED IMAGE</span>
+                            <h4>Image Preview</h4>
+                        </div>
+
+                        <button
+                            class="remove-btn"
+                            id="removeButton"
+                            type="button">
+
+                            <i class="bi bi-trash"></i>
+
+                        </button>
+
+                    </div>
+
 
                     <img
                         id="imagePreview"
                         src=""
-                        alt="Animal Preview">
+                        alt="Selected animal image">
+
 
                     <button
-                        type="button"
-                        class="btn btn-outline-danger mt-3"
-                        id="removeButton">
+                        class="btn predict-btn"
+                        id="predictButton"
+                        type="button">
 
-                        Remove Image
+                        <span id="predictText">
+                            <i class="bi bi-search"></i>
+                            Predict Animal
+                        </span>
+
+                        <span
+                            id="predictLoading"
+                            class="d-none">
+
+                            <span
+                                class="spinner-border spinner-border-sm">
+                            </span>
+
+                            Analyzing...
+
+                        </span>
 
                     </button>
 
                 </div>
 
 
-                <!-- ================= PREDICT BUTTON ================= -->
-                <button
-                    type="button"
-                    class="predict-button btn"
-                    id="predictButton">
+                <!-- Prediction Result -->
 
-                    🔍 Predict Animal
+                <div
+                    class="result-card"
+                    id="resultCard">
 
-                </button>
+                    <div class="result-header">
 
-            </div>
-
-        </section>
-
-
-        <!-- ================= FEATURES ================= -->
-        <section class="features container-fluid">
-
-            <div class="row g-4 justify-content-center">
-
-                <!-- Feature 1 -->
-                <div class="col-12 col-md-6 col-lg-4">
-
-                    <div class="feature-card h-100">
-
-                        <div class="feature-icon">
-                            📸
+                        <div class="result-icon">
+                            <i class="bi bi-stars"></i>
                         </div>
 
-                        <h3>Upload Image</h3>
-
-                        <p>
-                            Upload an animal image from your device
-                            for identification.
-                        </p>
+                        <div>
+                            <span>PREDICTION RESULT</span>
+                            <h3>Animal Detected</h3>
+                        </div>
 
                     </div>
 
-                </div>
 
+                    <div class="result-body">
 
-                <!-- Feature 2 -->
-                <div class="col-12 col-md-6 col-lg-4">
-
-                    <div class="feature-card h-100">
-
-                        <div class="feature-icon">
-                            🤖
+                        <div class="result-animal">
+                            🦁
                         </div>
 
-                        <h3>AI Detection</h3>
+                        <div class="result-details">
 
-                        <p>
-                            Our AI model analyzes the image and
-                            detects the animal species.
-                        </p>
+                            <p>Detected Species</p>
+
+                            <h2 id="animalName">
+                                Lion
+                            </h2>
+
+                            <span class="confidence-badge">
+                                High Confidence
+                            </span>
+
+                        </div>
 
                     </div>
 
-                </div>
 
+                    <div class="confidence-section">
 
-                <!-- Feature 3 -->
-                <div class="col-12 col-md-6 col-lg-4">
+                        <div class="d-flex justify-content-between">
 
-                    <div class="feature-card h-100">
+                            <span>Confidence</span>
 
-                        <div class="feature-icon">
-                            🌿
+                            <strong id="confidenceValue">
+                                94%
+                            </strong>
+
                         </div>
 
-                        <h3>Learn About Wildlife</h3>
+                        <div class="progress">
 
-                        <p>
-                            Explore useful information about
-                            different wild animal species.
-                        </p>
+                            <div
+                                class="progress-bar"
+                                id="confidenceBar"
+                                style="width: 94%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="demo-note">
+
+                        <i class="bi bi-info-circle"></i>
+
+                        Demo result shown for frontend testing.
+                        Connect your AI model/API here for real predictions.
 
                     </div>
 
@@ -208,204 +464,929 @@
 
             </div>
 
-        </section>
-
-
-        <!-- ================= FOOTER ================= -->
-        <footer>
-
-            <p>
-                © 2026 Wild Animals |
-                Wildlife Animal Detection System
-            </p>
-
-        </footer>
+        </div>
 
     </div>
 
-
-    <!-- ================= JAVASCRIPT ================= -->
-
-    <script>
-
-        const imageUpload =
-            document.getElementById("imageUpload");
-
-        const imagePreview =
-            document.getElementById("imagePreview");
-
-        const previewContainer =
-            document.getElementById("previewContainer");
-
-        const predictButton =
-            document.getElementById("predictButton");
-
-        const removeButton =
-            document.getElementById("removeButton");
-
-        const uploadBox =
-            document.getElementById("uploadBox");
+</section>
 
 
-        // Maximum image size = 5MB
-        const MAX_FILE_SIZE = 5 * 1024 * 1024;
+<!-- =====================================================
+     FEATURES
+===================================================== -->
+
+<section class="features-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>WHY USE OUR SYSTEM?</span>
+
+            <h2>
+                Powerful Features
+            </h2>
+
+            <p>
+                Everything you need for an easy and interactive
+                wildlife identification experience.
+            </p>
+
+        </div>
 
 
-        // ================= IMAGE VALIDATION =================
+        <div class="row g-4">
 
-        function handleImage(file) {
+            <div class="col-12 col-md-6 col-lg-4">
 
-            if (!file) {
-                return;
-            }
+                <div class="feature-card h-100">
 
-            // Check file type
-            if (!file.type.startsWith("image/")) {
+                    <div class="feature-icon">
+                        <i class="bi bi-camera-fill"></i>
+                    </div>
 
-                alert("Please select a valid image file.");
+                    <h3>Image Upload</h3>
 
-                return;
-            }
+                    <p>
+                        Upload wildlife images directly from
+                        your device using a simple interface.
+                    </p>
 
+                </div>
 
-            // Check file size
-            if (file.size > MAX_FILE_SIZE) {
-
-                alert("Image size must be less than 5MB.");
-
-                imageUpload.value = "";
-
-                return;
-            }
+            </div>
 
 
-            // Preview image
-            const reader = new FileReader();
+            <div class="col-12 col-md-6 col-lg-4">
 
-            reader.onload = function (event) {
+                <div class="feature-card h-100">
 
-                imagePreview.src =
-                    event.target.result;
+                    <div class="feature-icon">
+                        <i class="bi bi-robot"></i>
+                    </div>
 
-                previewContainer.style.display =
-                    "block";
+                    <h3>AI Detection</h3>
 
-            };
+                    <p>
+                        AI-powered image analysis can identify
+                        different wild animal species.
+                    </p>
 
-            reader.readAsDataURL(file);
+                </div>
+
+            </div>
+
+
+            <div class="col-12 col-md-6 col-lg-4">
+
+                <div class="feature-card h-100">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-tree-fill"></i>
+                    </div>
+
+                    <h3>Wildlife Information</h3>
+
+                    <p>
+                        Learn more about animals, their habitat,
+                        behavior and characteristics.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-12 col-md-6 col-lg-4">
+
+                <div class="feature-card h-100">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-clock-history"></i>
+                    </div>
+
+                    <h3>Prediction History</h3>
+
+                    <p>
+                        Keep track of previously detected animals
+                        for future reference.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-12 col-md-6 col-lg-4">
+
+                <div class="feature-card h-100">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                    </div>
+
+                    <h3>Fast Processing</h3>
+
+                    <p>
+                        Designed for a quick and smooth
+                        image detection workflow.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-12 col-md-6 col-lg-4">
+
+                <div class="feature-card h-100">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+
+                    <h3>Simple & Secure</h3>
+
+                    <p>
+                        A clean interface designed to make
+                        wildlife detection easy and accessible.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     HOW IT WORKS
+===================================================== -->
+
+<section
+    class="how-section"
+    id="how-it-works">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>SIMPLE PROCESS</span>
+
+            <h2>
+                How It Works
+            </h2>
+
+            <p>
+                Identify an animal in just a few simple steps.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-12 col-md-6 col-lg-3">
+
+                <div class="step-card">
+
+                    <div class="step-number">
+                        01
+                    </div>
+
+                    <i class="bi bi-upload"></i>
+
+                    <h3>Upload</h3>
+
+                    <p>
+                        Select a clear wildlife image.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-12 col-md-6 col-lg-3">
+
+                <div class="step-card">
+
+                    <div class="step-number">
+                        02
+                    </div>
+
+                    <i class="bi bi-cpu"></i>
+
+                    <h3>Analyze</h3>
+
+                    <p>
+                        The AI system processes the image.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-12 col-md-6 col-lg-3">
+
+                <div class="step-card">
+
+                    <div class="step-number">
+                        03
+                    </div>
+
+                    <i class="bi bi-search"></i>
+
+                    <h3>Identify</h3>
+
+                    <p>
+                        The system identifies the species.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-12 col-md-6 col-lg-3">
+
+                <div class="step-card">
+
+                    <div class="step-number">
+                        04
+                    </div>
+
+                    <i class="bi bi-check-circle"></i>
+
+                    <h3>Result</h3>
+
+                    <p>
+                        View the prediction and confidence.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WILDLIFE SPECIES
+===================================================== -->
+
+<section class="species-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>EXPLORE WILDLIFE</span>
+
+            <h2>
+                Featured Animals
+            </h2>
+
+            <p>
+                Explore some of the fascinating wildlife species
+                that can be included in the detection system.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-12 col-md-6 col-lg-3">
+
+                <div class="species-card">
+
+                    <div class="species-image lion-bg">
+                        🦁
+                    </div>
+
+                    <div class="species-content">
+
+                        <span class="species-tag">
+                            Mammal
+                        </span>
+
+                        <h3>Lion</h3>
+
+                        <p>
+                            Known as one of the most iconic
+                            predators of the wild.
+                        </p>
+
+                        <a
+                            href="../identity/index.html"
+                            class="learn-link">
+
+                            Learn More
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-12 col-md-6 col-lg-3">
+
+                <div class="species-card">
+
+                    <div class="species-image tiger-bg">
+                        🐅
+                    </div>
+
+                    <div class="species-content">
+
+                        <span class="species-tag">
+                            Mammal
+                        </span>
+
+                        <h3>Tiger</h3>
+
+                        <p>
+                            A powerful big cat known for
+                            its distinctive striped coat.
+                        </p>
+
+                        <a
+                            href="../identity/index.html"
+                            class="learn-link">
+
+                            Learn More
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-12 col-md-6 col-lg-3">
+
+                <div class="species-card">
+
+                    <div class="species-image elephant-bg">
+                        🐘
+                    </div>
+
+                    <div class="species-content">
+
+                        <span class="species-tag">
+                            Mammal
+                        </span>
+
+                        <h3>Elephant</h3>
+
+                        <p>
+                            The largest land animal with
+                            remarkable intelligence.
+                        </p>
+
+                        <a
+                            href="../identity/index.html"
+                            class="learn-link">
+
+                            Learn More
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-12 col-md-6 col-lg-3">
+
+                <div class="species-card">
+
+                    <div class="species-image eagle-bg">
+                        🦅
+                    </div>
+
+                    <div class="species-content">
+
+                        <span class="species-tag">
+                            Bird
+                        </span>
+
+                        <h3>Eagle</h3>
+
+                        <p>
+                            A powerful bird of prey known
+                            for its excellent vision.
+                        </p>
+
+                        <a
+                            href="../identity/index.html"
+                            class="learn-link">
+
+                            Learn More
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta-section">
+
+    <div class="container">
+
+        <div class="cta-content">
+
+            <div>
+
+                <span>
+                    READY TO EXPLORE?
+                </span>
+
+                <h2>
+                    Start Identifying Wildlife
+                </h2>
+
+                <p>
+                    Upload an image and explore the possibilities
+                    of AI-powered animal detection.
+                </p>
+
+            </div>
+
+
+            <a
+                href="#detect"
+                class="btn cta-btn">
+
+                Start Detection
+                <i class="bi bi-arrow-up"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-5">
+
+                <div class="footer-brand">
+
+                    <span class="brand-icon">🐾</span>
+
+                    <div>
+                        <h3>WILD ANIMALS</h3>
+                        <p>
+                            Wildlife Animal Detection System
+                        </p>
+                    </div>
+
+                </div>
+
+                <p class="footer-description">
+                    A frontend interface designed for an
+                    AI-powered wildlife animal detection system.
+                </p>
+
+            </div>
+
+
+            <div class="col-6 col-lg-2">
+
+                <h4>Navigation</h4>
+
+                <a href="index.html">Home</a>
+                <a href="../identity/index.html">Identity</a>
+                <a href="../history/index.html">History</a>
+                <a href="../about/index.html">About</a>
+
+            </div>
+
+
+            <div class="col-6 col-lg-2">
+
+                <h4>Features</h4>
+
+                <a href="#detect">Detection</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#detect">Upload Image</a>
+                <a href="#detect">Prediction</a>
+
+            </div>
+
+
+            <div class="col-lg-3">
+
+                <h4>Project</h4>
+
+                <p>
+                    AI-based wildlife image classification
+                    and animal identification.
+                </p>
+
+                <div class="footer-icons">
+
+                    <i class="bi bi-github"></i>
+                    <i class="bi bi-link-45deg"></i>
+                    <i class="bi bi-envelope"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Wild Animals. Wildlife Animal Detection System.
+            </p>
+
+            <p>
+                Built with HTML, CSS & Bootstrap
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     BOOTSTRAP JS
+===================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<!-- =====================================================
+     CUSTOM JAVASCRIPT
+===================================================== -->
+
+<script>
+
+const imageUpload =
+    document.getElementById("imageUpload");
+
+const uploadBox =
+    document.getElementById("uploadBox");
+
+const imagePreview =
+    document.getElementById("imagePreview");
+
+const previewContainer =
+    document.getElementById("previewContainer");
+
+const removeButton =
+    document.getElementById("removeButton");
+
+const predictButton =
+    document.getElementById("predictButton");
+
+const predictText =
+    document.getElementById("predictText");
+
+const predictLoading =
+    document.getElementById("predictLoading");
+
+const resultCard =
+    document.getElementById("resultCard");
+
+const uploadStatus =
+    document.getElementById("uploadStatus");
+
+const confidenceBar =
+    document.getElementById("confidenceBar");
+
+const confidenceValue =
+    document.getElementById("confidenceValue");
+
+const animalName =
+    document.getElementById("animalName");
+
+
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
+
+
+// =====================================================
+// HANDLE IMAGE
+// =====================================================
+
+function handleImage(file) {
+
+    if (!file) {
+        return;
+    }
+
+
+    // Validate type
+
+    if (!file.type.startsWith("image/")) {
+
+        showUploadError(
+            "Please select a valid image file."
+        );
+
+        return;
+    }
+
+
+    // Validate size
+
+    if (file.size > MAX_FILE_SIZE) {
+
+        showUploadError(
+            "Image size must be less than 5 MB."
+        );
+
+        imageUpload.value = "";
+
+        return;
+    }
+
+
+    const reader = new FileReader();
+
+
+    reader.onload = function(event) {
+
+        imagePreview.src =
+            event.target.result;
+
+        previewContainer.classList.add("show");
+
+        resultCard.classList.remove("show");
+
+        uploadStatus.innerHTML =
+            `<i class="bi bi-check-circle-fill"></i>
+             Image uploaded successfully`;
+
+        uploadStatus.classList.add("success");
+
+    };
+
+
+    reader.readAsDataURL(file);
+}
+
+
+// =====================================================
+// FILE INPUT
+// =====================================================
+
+imageUpload.addEventListener(
+    "change",
+    function() {
+
+        handleImage(this.files[0]);
+
+    }
+);
+
+
+// =====================================================
+// DRAG OVER
+// =====================================================
+
+uploadBox.addEventListener(
+    "dragover",
+    function(event) {
+
+        event.preventDefault();
+
+        uploadBox.classList.add("drag-active");
+
+    }
+);
+
+
+// =====================================================
+// DRAG LEAVE
+// =====================================================
+
+uploadBox.addEventListener(
+    "dragleave",
+    function() {
+
+        uploadBox.classList.remove("drag-active");
+
+    }
+);
+
+
+// =====================================================
+// DROP
+// =====================================================
+
+uploadBox.addEventListener(
+    "drop",
+    function(event) {
+
+        event.preventDefault();
+
+        uploadBox.classList.remove("drag-active");
+
+        const file =
+            event.dataTransfer.files[0];
+
+        if (file) {
+
+            handleImage(file);
+
+        }
+
+    }
+);
+
+
+// =====================================================
+// REMOVE IMAGE
+// =====================================================
+
+removeButton.addEventListener(
+    "click",
+    function() {
+
+        imageUpload.value = "";
+
+        imagePreview.src = "";
+
+        previewContainer.classList.remove("show");
+
+        resultCard.classList.remove("show");
+
+        uploadStatus.innerHTML = "";
+
+        uploadStatus.classList.remove("success");
+
+    }
+);
+
+
+// =====================================================
+// PREDICT
+// =====================================================
+
+predictButton.addEventListener(
+    "click",
+    function() {
+
+        if (!imageUpload.files.length) {
+
+            showUploadError(
+                "Please upload an animal image first."
+            );
+
+            return;
         }
 
 
-        // ================= IMAGE SELECT =================
+        // Loading state
 
-        imageUpload.addEventListener(
-            "change",
-            function () {
+        predictText.classList.add("d-none");
 
-                const file = this.files[0];
+        predictLoading.classList.remove("d-none");
 
-                handleImage(file);
-
-            }
-        );
+        predictButton.disabled = true;
 
 
-        // ================= DRAG & DROP =================
+        // Demo processing delay
 
-        uploadBox.addEventListener(
-            "dragover",
-            function (event) {
+        setTimeout(function() {
 
-                event.preventDefault();
+            predictText.classList.remove("d-none");
 
-                uploadBox.classList.add("drag-active");
+            predictLoading.classList.add("d-none");
 
-            }
-        );
+            predictButton.disabled = false;
 
 
-        uploadBox.addEventListener(
-            "dragleave",
-            function () {
+            // Demo result
 
-                uploadBox.classList.remove("drag-active");
+            animalName.textContent =
+                "Lion";
 
-            }
-        );
+            confidenceValue.textContent =
+                "94%";
 
-
-        uploadBox.addEventListener(
-            "drop",
-            function (event) {
-
-                event.preventDefault();
-
-                uploadBox.classList.remove("drag-active");
-
-                const file =
-                    event.dataTransfer.files[0];
-
-                if (file) {
-
-                    imageUpload.files =
-                        event.dataTransfer.files;
-
-                    handleImage(file);
-
-                }
-
-            }
-        );
+            confidenceBar.style.width =
+                "94%";
 
 
-        // ================= REMOVE IMAGE =================
-
-        removeButton.addEventListener(
-            "click",
-            function () {
-
-                imageUpload.value = "";
-
-                imagePreview.src = "";
-
-                previewContainer.style.display =
-                    "none";
-
-            }
-        );
+            resultCard.classList.add("show");
 
 
-        // ================= PREDICT BUTTON =================
+            resultCard.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
 
-        predictButton.addEventListener(
-            "click",
-            function () {
+        }, 1800);
 
-                if (!imageUpload.files.length) {
+    }
+);
 
-                    alert(
-                        "Please upload an animal image first."
-                    );
 
-                    return;
-                }
+// =====================================================
+// ERROR MESSAGE
+// =====================================================
 
-                alert(
-                    "Animal prediction will be connected to the AI model."
+function showUploadError(message) {
+
+    uploadStatus.innerHTML =
+        `<i class="bi bi-exclamation-circle-fill"></i>
+         ${message}`;
+
+    uploadStatus.classList.remove("success");
+
+}
+
+
+// =====================================================
+// SMOOTH NAVIGATION
+// =====================================================
+
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach(function(link) {
+
+    link.addEventListener(
+        "click",
+        function(event) {
+
+            const target =
+                document.querySelector(
+                    this.getAttribute("href")
                 );
 
+            if (target) {
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
+
             }
-        );
 
-    </script>
+        }
+    );
 
+});
 
-    <!-- Bootstrap 5 JavaScript -->
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-    </script>
+</script>
 
 </body>
-
 </html>
 ```
+git status
