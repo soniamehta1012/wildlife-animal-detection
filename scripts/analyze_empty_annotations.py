@@ -42,20 +42,5 @@ for label_file in empty_labels[:20]:
     if not image_found:
         print(f"{label_file.name} -> IMAGE NOT FOUND")
 
-print("\nTask 4.2 analysis completed.")
+print("\nTask 4.2 analysis completedpython scripts\final_ab_review.py.")
 
-# --------------------------------------------------
-# SAVE EMPTY ANNOTATION REPORT
-# --------------------------------------------------
-
-REPORT_FILE = ROOT / "empty_annotation_report.txt"
-
-with open(REPORT_FILE, "w", encoding="utf-8") as f:
-    f.write("TASK 4.2 — EMPTY ANNOTATION REPORT\n")
-    f.write("=" * 60 + "\n\n")
-    f.write(f"Total empty labels: {len(empty_labels)}\n\n")
-
-    for label_file in empty_labels:
-        f.write(f"{label_file.name} -> corresponding image exists\n")
-
-print(f"\nReport saved to: {REPORT_FILE}")
