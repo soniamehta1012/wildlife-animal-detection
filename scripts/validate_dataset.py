@@ -69,12 +69,11 @@ total_invalid_labels = 0
 total_invalid_classes = 0
 total_invalid_boxes = 0
 
-
 for split in ["train", "val"]:
 
-    image_dir = ROOT / "images" / split
-    label_dir = ROOT / "labels" / split
-
+    image_dir = ROOT / "dataset" / "cleaned" / "images" / split
+    label_dir = ROOT / "dataset" / "cleaned" / "labels" / split
+    
     print("\n" + "-" * 60)
     print(f"CHECKING {split.upper()} DATA")
     print("-" * 60)

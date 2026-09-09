@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wild Animals - Animal Detection</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <!-- ================= HEADER ================= -->
+        <header class="header">
+
+            <div class="logo">
+                🐾
+            </div>
+
+            <div class="title-section">
+                <h1>WILD ANIMALS</h1>
+                <p>Wildlife Animal Detection System</p>
+            </div>
+
+        </header>
+
+
+        <!-- ================= NAVIGATION ================= -->
+        <nav class="navbar">
+
+            <a href="index.html" class="active">Home</a>
+
+            <a href="../identity/index.html">Identity</a>
+
+            <a href="../history/index.html">History</a>
+
+            <a href="../about/index.html">About</a>
+
+        </nav>
+
+
+        <!-- ================= HERO SECTION ================= -->
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <h2>Discover the Wild</h2>
+
+                <p>
+                    Upload an image of a wild animal and let our
+                    intelligent system identify the species.
+                </p>
+
+
+                <!-- ================= UPLOAD BOX ================= -->
+                <div class="upload-box">
+
+                    <div class="upload-icon">
+                        📷
+                    </div>
+
+                    <h3>Upload Animal Image</h3>
+
+                    <p>
+                        Select an image from your device
+                    </p>
+
+                    <label
+                        for="imageUpload"
+                        class="upload-button">
+                        Choose Image
+                    </label>
+
+                    <input
+                        type="file"
+                        id="imageUpload"
+                        accept="image/*"
+                        hidden
+                    >
+
+                </div>
+
+
+                <!-- ================= IMAGE PREVIEW ================= -->
+                <div
+                    class="preview-container"
+                    id="previewContainer">
+
+                    <h3>Selected Image</h3>
+
+                    <img
+                        id="imagePreview"
+                        src=""
+                        alt="Animal Preview"
+                    >
+
+                </div>
+
+
+                <!-- ================= PREDICT BUTTON ================= -->
+                <button
+                    class="predict-button"
+                    id="predictButton">
+
+                    🔍 Predict Animal
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FEATURES ================= -->
+        <section class="features">
+
+            <!-- Feature 1 -->
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    📸
+                </div>
+
+                <h3>Upload Image</h3>
+
+                <p>
+                    Upload an animal image from your device
+                    for identification.
+                </p>
+
+            </div>
+
+
+            <!-- Feature 2 -->
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🤖
+                </div>
+
+                <h3>AI Detection</h3>
+
+                <p>
+                    Our AI model analyzes the image and
+                    detects the animal species.
+                </p>
+
+            </div>
+
+
+            <!-- Feature 3 -->
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🌿
+                </div>
+
+                <h3>Learn About Wildlife</h3>
+
+                <p>
+                    Explore useful information about
+                    different wild animal species.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FOOTER ================= -->
+        <footer>
+
+            <p>
+                © 2026 Wild Animals |
+                Wildlife Animal Detection System
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        // Get elements
+        const imageUpload =
+            document.getElementById("imageUpload");
+
+        const imagePreview =
+            document.getElementById("imagePreview");
+
+        const previewContainer =
+            document.getElementById("previewContainer");
+
+        const predictButton =
+            document.getElementById("predictButton");
+
+
+        // ================= IMAGE UPLOAD =================
+
+        imageUpload.addEventListener("change", function () {
+
+            const file = this.files[0];
+
+            if (file) {
+
+                const reader = new FileReader();
+
+                reader.onload = function (event) {
+
+                    imagePreview.src =
+                        event.target.result;
+
+                    previewContainer.style.display =
+                        "block";
+
+                };
+
+                reader.readAsDataURL(file);
+
+            }
+
+        });
+
+
+        // ================= PREDICT BUTTON =================
+
+        predictButton.addEventListener("click", function () {
+
+            if (!imageUpload.files.length) {
+
+                alert(
+                    "Please upload an animal image first."
+                );
+
+                return;
+            }
+
+            alert(
+                "Animal prediction will be connected to the AI model."
+            );
+
+        });
+
+    </script>
+
+</body>
+
+</html>
