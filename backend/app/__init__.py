@@ -1,21 +1,15 @@
 from flask import Flask
 
 from app.config import Config
+from app.db import init_db
 
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
-    # NOTE: connecting to mongodb and creating the indexes is done in the
-    # next sprint (Backend setup). in this sprint we are only setting up the
-    # architecture, so here we just build the app and register the routes.
-    #
-    # from app.db import init_db
-    # from app.models import user, prediction
-    # init_db(app)
-    # user.create_indexes()
-    # prediction.create_indexes()
+    # connect to mongodb when the app starts
+    init_db(app)
 
     from app.routes.health import health_bp
     from app.routes.auth import auth_bp
