@@ -1,0 +1,45 @@
+path: .
+train: images/train
+val: images/val
+nc: 40
+names:
+  - lion
+  - tiger
+  - bear
+  - elephant
+  - giraffe
+  - rhinoceros
+  - hippopotamus
+  - zebra
+  - gorilla
+  - monkey
+  - deer
+  - mule_deer
+  - moose
+  - bison
+  - pronghorn
+  - wild_boar
+  - fox
+  - coyote
+  - bobcat
+  - mongoose
+  - alligator
+  - rattlesnake
+  - western_diamondback_rattlesnake
+  - california_sea_lion
+  - elephant_seal
+  - river_otter
+  - raccoon
+  - porcupine
+  - marten
+  - jackrabbit
+  - chipmunk
+  - muskrat
+  - crow
+  - goldfinch
+  - sparrow
+  - bald_eagle
+  - golden_eagle
+  - peacock
+  - turkey_vulture
+  - wild_turkey
