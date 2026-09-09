@@ -9,7 +9,8 @@ db = None
 
 def init_db(app):
     global client, db
-    client = MongoClient(app.config["MONGO_URI"])
+    # serverSelectionTimeoutMS so it fails fast if mongodb is not running
+    client = MongoClient(app.config["MONGO_URI"], serverSelectionTimeoutMS=5000)
     db = client[app.config["DB_NAME"]]
     print("Connected to MongoDB ->", app.config["DB_NAME"])
     return db
