@@ -43,13 +43,20 @@ def get_git_metrics(interval="weekly"):
     """
     Parses Git commit logs.
     Supported intervals: 'weekly', 'monthly', 'final'
+
+    Commit statistics are counted once per commit, while the detailed
+    student log also records each changed file so the report can show
+    the actual files/scripts involved in the work.
     """
     today = datetime.date.today()
-    git_args = ['git', 'log', '--no-merges', '--pretty=format:COMMIT|||%h|||%an|||%ad|||%s', '--date=short', '--numstat']
-   
+    git_args = [
+        'git', 'log', '--no-merges',
+        '--pretty=format:COMMIT|||%h|||%an|||%ad|||%s',
+        '--date=short', '--numstat'
+    ]
+
     if interval == "weekly":
         since_date = (today - datetime.timedelta(days=7)).strftime("%Y-%m-%d")
-
         git_args.append(f"--since={since_date}")
         scope_title = f"Last 7 Days (Since {since_date})"
     elif interval == "monthly":
@@ -58,63 +65,121 @@ def get_git_metrics(interval="weekly"):
         scope_title = f"Last 30 Days (Since {since_date})"
     else:
         scope_title = "Complete Project Lifecycle (All Commits)"
+
     try:
-        raw_output = subprocess.check_output(git_args, encoding='utf-8', errors='replace')
+        raw_output = subprocess.check_output(
+            git_args, encoding='utf-8', errors='replace'
+        )
     except subprocess.CalledProcessError:
         print("[ERROR] Git command failed. Please ensure you are inside a Git repository.")
         return None, None, None, scope_title
-    students = defaultdict(lambda: {"commits": 0, "added": 0, "deleted": 0, "active_days": set()})
+
+    students = defaultdict(
+        lambda: {"commits": 0, "added": 0, "deleted": 0, "active_days": set()}
+    )
     timeline_activity = defaultdict(lambda: defaultdict(int))
     student_logs = defaultdict(list)
+
     current_author = None
     current_date_str = None
+    current_sha = None
+    current_msg = None
+    current_files = []
 
-    for line in raw_output.strip().split('\n'):
+    def save_current_commit_files():
+        """Add one detailed-log row for each file changed by the current commit."""
+        if not current_author:
+            return
+
+        if current_files:
+            for filename in current_files:
+                student_logs[current_author].append(
+                    (current_date_str, current_sha, filename)
+                )
+        else:
+            # Keep a row even if Git provides no file-level information.
+            student_logs[current_author].append(
+                (current_date_str, current_sha, current_msg)
+            )
+
+    for line in raw_output.split('\n'):
         line = line.strip()
+
         if not line:
             continue
-           
+
         if line.startswith('COMMIT|||'):
+            # Save the files belonging to the previous commit before
+            # starting the next one.
+            save_current_commit_files()
+
             parts = line.split('|||')
-            if len(parts) >= 5:
-                sha = parts[1].strip()
-                author = parts[2].strip()
-                date_str = parts[3].strip()
-                msg = parts[4].strip()
-            else:
+            if len(parts) < 5:
+                current_author = None
+                current_files = []
                 continue
-               
+
+            current_sha = parts[1].strip()
+            current_author = parts[2].strip()
+            current_date_str = parts[3].strip()
+            current_msg = parts[4].strip()
+            current_files = []
 
             # --- IGNORE AUTOMATED BOTS ---
-            if "bot" in author.lower() or "github-actions" in author.lower():
+            if "bot" in current_author.lower() or "github-actions" in current_author.lower():
                 current_author = None
                 continue
             # -----------------------------
-           
-            current_author = author
-            current_date_str = date_str
-           
+
+            # IMPORTANT: one commit is still counted as ONE commit.
             students[current_author]["commits"] += 1
             students[current_author]["active_days"].add(current_date_str)
-            student_logs[current_author].append((date_str, sha, msg))
-           
+
             try:
-                dt = datetime.datetime.strptime(current_date_str, "%Y-%m-%d").date()
+                dt = datetime.datetime.strptime(
+                    current_date_str, "%Y-%m-%d"
+                ).date()
+
                 if interval == "weekly":
                     period_key = dt.strftime("%a (%b %d)")
                 elif interval == "monthly":
-                    period_key = f"{dt.isocalendar()[0]}-W{dt.isocalendar()[1]:02d}"
+                    period_key = (
+                        f"{dt.isocalendar()[0]}-W{dt.isocalendar()[1]:02d}"
+                    )
                 else:
                     period_key = dt.strftime("%Y-%m")
+
                 timeline_activity[period_key][current_author] += 1
             except Exception:
                 pass
 
-        elif current_author and not line.startswith('COMMIT|||'):
-            parts = line.split()
-            if len(parts) >= 2 and parts[0].isdigit() and parts[1].isdigit():
-                students[current_author]["added"] += int(parts[0])
-                students[current_author]["deleted"] += int(parts[1])
+        elif current_author:
+            # --numstat normally uses tab-separated fields:
+            # added <TAB> deleted <TAB> filename
+            parts = line.split('\t')
+
+            if len(parts) >= 3:
+                added_str = parts[0].strip()
+                deleted_str = parts[1].strip()
+                filename = '\t'.join(parts[2:]).strip()
+
+                # Preserve the original LOC calculation behavior.
+                if added_str.isdigit() and deleted_str.isdigit():
+                    students[current_author]["added"] += int(added_str)
+                    students[current_author]["deleted"] += int(deleted_str)
+
+                if filename:
+                    current_files.append(filename)
+            else:
+                # Fallback for unusual Git output formatting.
+                parts = line.split()
+                if len(parts) >= 2:
+                    if parts[0].isdigit() and parts[1].isdigit():
+                        students[current_author]["added"] += int(parts[0])
+                        students[current_author]["deleted"] += int(parts[1])
+
+    # Save the final commit in the log.
+    save_current_commit_files()
 
     return students, timeline_activity, student_logs, scope_title
 
@@ -302,13 +367,13 @@ spaceAfter=2
     else:
         for student_name, logs in student_logs.items():
             student_section = []
-            student_section.append(Paragraph(f"<b>Student:</b> {html.escape(student_name)} — <i>{len(logs)} commit(s)</i>", sub_section_style))
+            student_section.append(Paragraph(f"<b>Student:</b> {html.escape(student_name)} — <i>{students[student_name]["commits"]} commit(s), {len(logs)} file change(s)</i>", sub_section_style))
            
-            log_table_data = [["Date", "Hash", "Commit Message", "Mentor Marks (/10)"]]
+            log_table_data = [["Date", "Hash", "Changed File / Work Item", "Mentor Marks (/10)"]]
            
             # Place the clean marking line in the first row
-            first_date, first_sha, first_msg = logs[0]
-            safe_msg = html.escape(first_msg) if first_msg else "(No commit message)"
+            first_date, first_sha, first_file = logs[0]
+            safe_msg = html.escape(first_file) if first_file else "(No file information)"
             log_table_data.append([
                 Paragraph(first_date, meta_cell_style),
                 Paragraph(f"<code>{first_sha}</code>", meta_cell_style),
@@ -317,8 +382,8 @@ spaceAfter=2
             ])
            
             # Subsequent commit rows have blank placeholder for merged cell
-            for date_val, sha_val, msg_val in logs[1:]:
-                safe_msg = html.escape(msg_val) if msg_val else "(No commit message)"
+            for date_val, sha_val, file_val in logs[1:]:
+                safe_msg = html.escape(file_val) if file_val else "(No file information)"
                 log_table_data.append([
                     Paragraph(date_val, meta_cell_style),
                     Paragraph(f"<code>{sha_val}</code>", meta_cell_style),
