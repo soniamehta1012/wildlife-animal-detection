@@ -13,5 +13,8 @@ class Config:
     MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
     DB_NAME = os.getenv("DB_NAME", "wildlife_db")
 
+    # where uploaded images get saved
+    UPLOAD_FOLDER = os.getenv("UPLOAD_FOLDER", "uploads")
+
     # limit image upload size to 16 MB (will be used later in upload api)
     MAX_CONTENT_LENGTH = 16 * 1024 * 1024
