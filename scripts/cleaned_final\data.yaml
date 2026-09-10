@@ -1,0 +1,90 @@
+# FINAL CLEANED DATASET - TASK 4.3
+# Output: Final cleaned wildlife dataset
+# 528 images were reviewed for empty annotations.
+# 152 unresolved B-category images were removed.
+# 376 images remain in the final cleaned dataset.
+# All remaining images and their corresponding annotations were kept intact.
+# No other images were removed during this Task 4.3 cleaning step.
+
+path: C:\Users\sharm\OneDrive\Desktop\wildlife-animal-detection\dataset\cleaned_final
+
+train: images/train
+val: images/train
+
+nc: 74
+
+names:
+- .ipynb_checkpoints
+- Alligator
+- Crow
+- Deer
+- Elephant
+- Fox
+- Giraffa
+- Goldfinch
+- Gorilla
+- Hippopotamuses
+- Lion
+- Mongoose
+- Moose
+- Rhinoceroses
+- Sparrow
+- Tiger
+- Wild Dog
+- Zebra
+- american_black_bear
+- bald_eagle
+- bear
+- bighorn_sheep
+- bison
+- bobcat
+- brush_rabbit
+- budgerigar
+- california_mouse
+- california_sea_lion
+- california_vole
+- cat
+- chicken
+- chipmunk
+- cockatiel
+- cow
+- coyote
+- desert_cottontail
+- dog
+- donkey
+- duck
+- elephant_seal
+- goat
+- golden_eagle
+- gray_wolf
+- great_horned_owl
+- guinea_pig
+- harbor_seal
+- horse
+- jackrabbit
+- kangaroo_rat
+- llama
+- marten
+- monkey
+- mountain_lion
+- mule_deer
+- muskrat
+- northern_pacific_rattlesnake
+- opossum
+- parrot
+- peacock
+- porcupine
+- pronghorn
+- rabbit
+- raccoon
+- rattlesnake
+- red_tailed_hawk
+- river_otter
+- squirrel
+- striped_skunk
+- tule_elk
+- turkey
+- turkey_vulture
+- western_diamondback_rattlesnake
+- wild_boar
+- wild_turkey
