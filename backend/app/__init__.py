@@ -2,14 +2,17 @@ from flask import Flask
 
 from app.config import Config
 from app.db import init_db
+from app.models import user, prediction
 
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
-    # connect to mongodb when the app starts
+    # connect to mongodb and set up the indexes when the app starts
     init_db(app)
+    user.create_indexes()
+    prediction.create_indexes()
 
     from app.routes.health import health_bp
     from app.routes.auth import auth_bp
