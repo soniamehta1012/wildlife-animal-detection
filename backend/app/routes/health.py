@@ -2,13 +2,22 @@ from flask import Blueprint, jsonify
 
 from app.db import get_db
 
-# simple route to check the server is running and can reach mongodb.
-
 health_bp = Blueprint("health", __name__)
+
+
+@health_bp.get("/")
+def index():
+    # simple landing response so the base url shows something useful
+    return jsonify({
+        "service": "Wildlife Animal Detection API",
+        "status": "running",
+        "endpoints": ["/health", "/api/auth", "/api/predictions"],
+    })
 
 
 @health_bp.get("/health")
 def health():
+    # check the server is running and can reach mongodb
     try:
         get_db().command("ping")
         db_status = "connected"

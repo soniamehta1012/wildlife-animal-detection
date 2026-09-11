@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 
 from app.config import Config
 from app.db import init_db
@@ -8,6 +9,9 @@ from app.models import user, prediction
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
+
+    # allow the frontend (running on a different domain) to call this api
+    CORS(app)
 
     # connect to mongodb and set up the indexes when the app starts
     init_db(app)
