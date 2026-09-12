@@ -10,10 +10,12 @@ import shutil
 
 ROOT = Path(__file__).resolve().parent.parent
 
-DATA_YAML = ROOT / "data.yaml"
-IMAGE_DIR = ROOT / "dataset" / "cleaned" / "images" / "train"
-LABEL_DIR = ROOT / "dataset" / "cleaned" / "labels" / "train"
-REVIEW_FILE = ROOT / "scripts" / "final_ab_review.csv"
+
+DATA_YAML = ROOT / "dataset" / "task_4_3_resolved" / "data.yaml"
+IMAGE_DIR = ROOT / "dataset" / "task_4_3_resolved" / "images" / "train"
+LABEL_DIR = ROOT / "dataset" / "task_4_3_resolved" / "labels" / "train"
+BACKUP_DIR = ROOT / "dataset" / "task_4_3_resolved" / "labels" / "train_backup_before_task_4_3"
+
 
 BACKUP_DIR = ROOT / "dataset" / "cleaned" / "labels" / "train_backup_before_task_4_3"
 
