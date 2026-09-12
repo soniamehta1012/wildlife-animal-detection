@@ -8,7 +8,7 @@ import csv
 
 ROOT = Path(__file__).resolve().parent
 
-IMAGE_DIR = ROOT / "dataset" / "cleaned" / "images" / "train"
+IMAGE_DIR = ROOT / "dataset" / "cleaned_final" / "images" / "train"
 MANIFEST = ROOT / "scripts" / "task_4_3_review_manifest.csv"
 
 OUTPUT_DIR = ROOT / "empty_annotation_batches"
